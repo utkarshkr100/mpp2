@@ -59,8 +59,16 @@ st.markdown("""
 @st.cache_resource
 def load_all_components():
     """Load model, encoders, and rules"""
-    with open('model/random_forest_model.pkl', 'rb') as f:
-        model = pickle.load(f)
+    import gzip
+
+    # Load compressed model
+    try:
+        with gzip.open('model/random_forest_model.pkl.gz', 'rb') as f:
+            model = pickle.load(f)
+    except FileNotFoundError:
+        # Fallback to uncompressed
+        with open('model/random_forest_model.pkl', 'rb') as f:
+            model = pickle.load(f)
 
     with open('model/label_encoder_area.pkl', 'rb') as f:
         le_area = pickle.load(f)

@@ -29,9 +29,7 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Model files - Random Forest model is too large (181MB) for regular Git
-# Use Git LFS for the main model file, or retrain with fewer estimators
-# Keep small encoder files
+# Model files - Keep compressed .gz version (54 MB), ignore uncompressed (181 MB)
 model/random_forest_model.pkl
 
 # Data files (optional - uncomment if data is too large)
