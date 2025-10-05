@@ -1,0 +1,103 @@
+{
+  "size_ranges": {
+    "Studio": {
+      "min_typical": 36.62,
+      "max_typical": 45.38,
+      "average": 42.18,
+      "median": 41.0,
+      "absolute_min": 0.29,
+      "absolute_max": 803.31
+    },
+    "1_bedroom": {
+      "min_typical": 66.65,
+      "max_typical": 84.99,
+      "average": 76.64,
+      "median": 74.07,
+      "absolute_min": 0.09,
+      "absolute_max": 966.91
+    },
+    "2_bedroom": {
+      "min_typical": 106.11,
+      "max_typical": 142.58,
+      "average": 127.25,
+      "median": 122.56,
+      "absolute_min": 0.01,
+      "absolute_max": 817.35
+    },
+    "3_bedroom": {
+      "min_typical": 159.9,
+      "max_typical": 216.79,
+      "average": 199.21,
+      "median": 184.58,
+      "absolute_min": 0.02,
+      "absolute_max": 979.79
+    },
+    "4_bedroom": {
+      "min_typical": 252.99,
+      "max_typical": 457.31,
+      "average": 362.68,
+      "median": 304.72,
+      "absolute_min": 3.15,
+      "absolute_max": 983.86
+    },
+    "5_bedroom": {
+      "min_typical": 350.41,
+      "max_typical": 634.05,
+      "average": 498.28,
+      "median": 449.18,
+      "absolute_min": 74.99,
+      "absolute_max": 993.18
+    }
+  },
+  "property_type_rules": {
+    "Unit": {
+      "must_have_bedrooms": true,
+      "typical_parking_pct": 92.93
+    },
+    "Land": {
+      "must_have_bedrooms": false,
+      "typical_parking_pct": 0.0
+    },
+    "Building": {
+      "must_have_bedrooms": false,
+      "typical_parking_pct": 0.01
+    }
+  },
+  "property_subtype_specifics": {
+    "Flat": {
+      "typical_bedrooms": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "size_range": [
+        30,
+        250
+      ]
+    },
+    "Villa": {
+      "typical_bedrooms": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "size_range": [
+        150,
+        600
+      ]
+    },
+    "Hotel Apartment": {
+      "typical_bedrooms": [
+        0,
+        1,
+        2
+      ],
+      "size_range": [
+        40,
+        150
+      ]
+    }
+  }
+}

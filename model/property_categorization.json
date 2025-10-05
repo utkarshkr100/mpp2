@@ -1,0 +1,34 @@
+{
+  "residential_subtypes": [
+    "Flat",
+    "Villa",
+    "Hotel Apartment",
+    "Residential",
+    "Stacked Townhouses",
+    "Residential / Attached Villas",
+    "Residential / Residential Villa",
+    "Residential / Villas"
+  ],
+  "commercial_subtypes": [
+    "Office",
+    "Shop",
+    "Store",
+    "Warehouse",
+    "Shopping Mall",
+    "Show Rooms",
+    "Sized Partition"
+  ],
+  "mixed_use_subtypes": [
+    "Hotel Rooms",
+    "Gymnasium",
+    "School"
+  ],
+  "property_types_no_bedrooms": [
+    "Land",
+    "Building"
+  ],
+  "property_types_with_bedrooms": [
+    "Unit",
+    "Villa"
+  ]
+}

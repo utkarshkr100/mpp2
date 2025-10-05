@@ -1,0 +1,166 @@
+{
+  "property_usage_options": [
+    "Residential",
+    "Residential / Commercial",
+    "Commercial",
+    "Industrial",
+    "Other",
+    "Multi-Use",
+    "Storage",
+    "Agricultural",
+    "Industrial / Commercial / Residential",
+    "Hospitality ",
+    "Industrial / Commercial"
+  ],
+  "property_type_by_usage": {
+    "Residential": [
+      "Unit",
+      "Villa",
+      "Land",
+      "Building"
+    ],
+    "Residential / Commercial": [
+      "Building",
+      "Land",
+      "Villa"
+    ],
+    "Commercial": [
+      "Unit",
+      "Land",
+      "Villa",
+      "Building"
+    ],
+    "Industrial": [
+      "Land",
+      "Building",
+      "Unit"
+    ],
+    "Other": [
+      "Land",
+      "Villa",
+      "Building",
+      "Unit"
+    ],
+    "Multi-Use": [
+      "Land",
+      "Building"
+    ],
+    "Storage": [
+      "Unit"
+    ],
+    "Agricultural": [
+      "Land",
+      "Building",
+      "Villa"
+    ],
+    "Industrial / Commercial / Residential": [],
+    "Hospitality ": [
+      "Unit",
+      "Land"
+    ],
+    "Industrial / Commercial": [
+      "Building"
+    ]
+  },
+  "property_subtype_by_type": {
+    "Villa": [
+      "Villa"
+    ],
+    "Land": [
+      "Residential",
+      "Commercial",
+      "General Use",
+      "Land",
+      "Government Housing",
+      "Residential Flats",
+      "Villa",
+      "Industrial",
+      "Airport",
+      "Residential / Attached Villas",
+      "Sports Club",
+      "Unit"
+    ],
+    "Building": [
+      "Villa",
+      "Building"
+    ],
+    "Unit": [
+      "Flat",
+      "Office",
+      "Hotel Apartment",
+      "Shop",
+      "Hotel Rooms",
+      "Workshop",
+      "Stacked Townhouses",
+      "Store",
+      "Warehouse",
+      "Clinic",
+      "Show Rooms"
+    ]
+  },
+  "property_subtype_by_usage": {
+    "Residential": [
+      "Flat",
+      "Villa",
+      "Residential",
+      "Office",
+      "Hotel Apartment",
+      "Shop",
+      "Hotel Rooms",
+      "General Use",
+      "Land",
+      "Government Housing",
+      "Stacked Townhouses",
+      "Residential Flats",
+      "Airport",
+      "Residential / Attached Villas"
+    ],
+    "Residential / Commercial": [],
+    "Commercial": [
+      "Office",
+      "Shop",
+      "Commercial",
+      "Industrial"
+    ],
+    "Industrial": [
+      "Workshop"
+    ],
+    "Other": [],
+    "Multi-Use": [],
+    "Storage": [
+      "Store",
+      "Warehouse"
+    ],
+    "Agricultural": [],
+    "Industrial / Commercial / Residential": [],
+    "Hospitality ": [
+      "Hotel Apartment",
+      "Hotel Rooms"
+    ],
+    "Industrial / Commercial": []
+  },
+  "requires_bedrooms": {
+    "Villa": false,
+    "Land": false,
+    "Building": false,
+    "Unit": true
+  },
+  "typical_registration_types": {
+    "Villa": [
+      "Existing Properties",
+      "Off-Plan Properties"
+    ],
+    "Land": [
+      "Existing Properties",
+      "Off-Plan Properties"
+    ],
+    "Building": [
+      "Existing Properties",
+      "Off-Plan Properties"
+    ],
+    "Unit": [
+      "Existing Properties",
+      "Off-Plan Properties"
+    ]
+  }
+}
