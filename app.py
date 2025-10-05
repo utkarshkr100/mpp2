@@ -349,6 +349,8 @@ if model_loaded:
                     # Initialize bedroom state
                     if 'selected_bedrooms' not in st.session_state:
                         st.session_state.selected_bedrooms = 2
+                    if 'last_bedrooms' not in st.session_state:
+                        st.session_state.last_bedrooms = 2
 
                     bedrooms = st.selectbox(
                         "🛏️ Bedrooms",
@@ -359,33 +361,27 @@ if model_loaded:
                         key='bedrooms_select'
                     )
 
-                    # Update state
-                    if bedrooms != st.session_state.selected_bedrooms:
-                        st.session_state.selected_bedrooms = bedrooms
-                        st.rerun()
+                    # Auto-update area size when bedroom changes
+                    if bedrooms != st.session_state.last_bedrooms:
+                        st.session_state.last_bedrooms = bedrooms
+                        # Get suggested size based on new bedroom count
+                        if validation_rules:
+                            size_range = get_expected_size_range(bedrooms, validation_rules)
+                            if size_range:
+                                st.session_state.area_size = size_range['average']
                 else:
                     bedrooms = 0
                     st.info("ℹ️ Bedrooms not applicable for this property type")
 
                 # 4. Area Size with auto-fill
-                # Get suggested size based on bedrooms
-                suggested_size = 100.0
-                if validation_rules and show_bedrooms:
-                    size_range = get_expected_size_range(bedrooms, validation_rules)
-                    if size_range:
-                        suggested_size = size_range['average']
-
-                # Initialize or update area size in session state
+                # Initialize area size if not set
                 if 'area_size' not in st.session_state:
+                    suggested_size = 100.0
+                    if validation_rules and show_bedrooms:
+                        size_range = get_expected_size_range(bedrooms, validation_rules)
+                        if size_range:
+                            suggested_size = size_range['average']
                     st.session_state.area_size = suggested_size
-
-                # Check if we should auto-update (bedroom changed)
-                if 'last_bedrooms' not in st.session_state:
-                    st.session_state.last_bedrooms = bedrooms
-
-                if bedrooms != st.session_state.last_bedrooms:
-                    st.session_state.area_size = suggested_size
-                    st.session_state.last_bedrooms = bedrooms
 
                 area_size = st.number_input(
                     "📐 Property Size (sqm)",
@@ -397,8 +393,9 @@ if model_loaded:
                     key='area_input'
                 )
 
-                # Update area in state
-                st.session_state.area_size = area_size
+                # Update area in state (only if user manually changed it)
+                if area_size != st.session_state.area_size:
+                    st.session_state.area_size = area_size
 
                 # 6. Parking
                 has_parking = st.radio(
