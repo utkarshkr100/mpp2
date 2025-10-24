@@ -29,7 +29,7 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Model files - Keep compressed .gz version (54 MB), ignore uncompressed (181 MB)
+# Model files - Store separately (181 MB too large for GitHub)
 model/random_forest_model.pkl
 
 # Data files (optional - uncomment if data is too large)
@@ -63,3 +63,4 @@ figures/
 # Temporary files
 nul
 *.tmp
+.claude/settings.local.json

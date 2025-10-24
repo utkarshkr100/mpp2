@@ -6,7 +6,10 @@
       "Bash(move app.py app_old.py)",
       "Bash(move app_dynamic.py app.py)",
       "Bash(del nul)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
