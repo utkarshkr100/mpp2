@@ -76,8 +76,10 @@ class PropertyInput(BaseModel):
 
 
 class PredictionResponse(BaseModel):
-    predicted_price: float = Field(..., description="Predicted price in AED")
+    predicted_price: float = Field(..., description="Predicted price in AED (mid-point)")
     predicted_price_formatted: str = Field(..., description="Formatted price string")
+    price_range: dict = Field(..., description="Price range (±10%): lower_bound and upper_bound")
+    price_range_formatted: str = Field(..., description="Formatted price range string")
     price_per_sqm: float = Field(..., description="Price per square meter")
     confidence_level: str = Field(..., description="Confidence level of prediction")
     input_features: dict = Field(..., description="Input features used for prediction")
@@ -230,6 +232,10 @@ def predict_price(property_input: PropertyInput):
         # Make prediction
         prediction = model.predict(features)[0]
 
+        # Calculate price range (±10%)
+        lower_bound = prediction * 0.90
+        upper_bound = prediction * 1.10
+
         # Calculate derived metrics
         price_per_sqm = prediction / property_input.procedure_area
 
@@ -241,9 +247,24 @@ def predict_price(property_input: PropertyInput):
             property_input.property_sub_type_en
         )
 
+        # Helper function to format price
+        def format_price_millions(price):
+            if price >= 1_000_000:
+                millions = price / 1_000_000
+                return f"{millions:.2f}M" if millions < 10 else f"{millions:.1f}M"
+            elif price >= 1_000:
+                return f"{price/1_000:.0f}K"
+            else:
+                return f"{price:.0f}"
+
         return PredictionResponse(
             predicted_price=round(prediction, 2),
             predicted_price_formatted=f"{prediction:,.0f} AED",
+            price_range={
+                "lower_bound": round(lower_bound, 2),
+                "upper_bound": round(upper_bound, 2)
+            },
+            price_range_formatted=f"{format_price_millions(lower_bound)} - {format_price_millions(upper_bound)} AED",
             price_per_sqm=round(price_per_sqm, 2),
             confidence_level=confidence,
             input_features=property_input.dict(),
