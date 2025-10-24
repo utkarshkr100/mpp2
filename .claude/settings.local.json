@@ -9,7 +9,11 @@
       "Bash(awk:*)",
       "Bash(git rm:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(curl -s -X POST \"http://localhost:8000/predict\" -H \"Content-Type: application/json\" -d \"{\"\"procedure_area\"\":250,\"\"bedrooms\"\":4,\"\"has_parking\"\":1,\"\"has_project\"\":1,\"\"area_name_en\"\":\"\"PALM JUMEIRAH\"\",\"\"property_sub_type_en\"\":\"\"Villa\"\",\"\"reg_type_en\"\":\"\"Off-Plan Properties\"\"}\")",
+      "Bash(curl -s -X POST \"http://localhost:8000/predict\" -H \"Content-Type: application/json\" -d \"{\"\"procedure_area\"\":50,\"\"bedrooms\"\":0,\"\"has_parking\"\":0,\"\"has_project\"\":1,\"\"area_name_en\"\":\"\"JUMEIRAH VILLAGE CIRCLE\"\",\"\"property_sub_type_en\"\":\"\"Flat\"\",\"\"reg_type_en\"\":\"\"Off-Plan Properties\"\"}\")",
+      "Bash(curl -s -X POST \"http://localhost:8000/predict/batch\" -H \"Content-Type: application/json\" -d \"{\"\"properties\"\":[{\"\"procedure_area\"\":100,\"\"bedrooms\"\":2,\"\"has_parking\"\":1,\"\"has_project\"\":1,\"\"area_name_en\"\":\"\"DUBAI MARINA\"\",\"\"property_sub_type_en\"\":\"\"Flat\"\",\"\"reg_type_en\"\":\"\"Off-Plan Properties\"\"},{\"\"procedure_area\"\":150,\"\"bedrooms\"\":3,\"\"has_parking\"\":1,\"\"has_project\"\":1,\"\"area_name_en\"\":\"\"BUSINESS BAY\"\",\"\"property_sub_type_en\"\":\"\"Flat\"\",\"\"reg_type_en\"\":\"\"Off-Plan Properties\"\"},{\"\"procedure_area\"\":50,\"\"bedrooms\"\":0,\"\"has_parking\"\":0,\"\"has_project\"\":1,\"\"area_name_en\"\":\"\"JUMEIRAH VILLAGE CIRCLE\"\",\"\"property_sub_type_en\"\":\"\"Flat\"\",\"\"reg_type_en\"\":\"\"Off-Plan Properties\"\"}]}\")",
+      "Bash(curl -s http://localhost:8000/validation/rules)"
     ],
     "deny": [],
     "ask": []
