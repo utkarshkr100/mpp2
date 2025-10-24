@@ -62,7 +62,7 @@ class PropertyInput(BaseModel):
     reg_type_en: str = Field(..., description="Registration type", example="Off-Plan Properties")
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "procedure_area": 100.0,
                 "bedrooms": 2,
@@ -94,6 +94,8 @@ class BatchPredictionResponse(BaseModel):
 
 
 class ModelInfoResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}  # Allow model_* fields
+
     model_type: str
     training_samples: int
     r2_score: float
@@ -296,7 +298,7 @@ def get_areas():
         "areas": sorted(le_area.classes_.tolist())
     }
 
-
+'''
 @app.get("/property-types")
 def get_property_types():
     """Get list of all available property sub-types"""
@@ -327,7 +329,7 @@ def get_validation_rules():
         "property_subtype_specifics": validation_rules.get('property_subtype_specifics', {}),
         "description": "Validation rules based on analysis of 1.5M Dubai property transactions (2000-2025)"
     }
-
+'''
 
 @app.get("/health")
 def health_check():
